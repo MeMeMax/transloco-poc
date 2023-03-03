@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TranslocoModule } from '@ngneat/transloco';
@@ -20,6 +20,5 @@ import { FirstComponent } from './components/first/first.component';
     TranslocoModule,
     CanisDummyModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeatureOneModule {}
