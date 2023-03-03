@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve showcase",
+    "build:showcase:prod": "nx build showcase -c=production",
     "build:webcomponent:prod": "nx build webcomponent -c=production && npm run postbuild",
     "postbuild": "node postbuild.js"
   },
