@@ -7,20 +7,49 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {
+  translocoConfig,
+  TranslocoModule,
+  TRANSLOCO_CONFIG,
+  TRANSLOCO_SCOPE,
+} from '@ngneat/transloco';
+
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { createCustomElement } from '@angular/elements';
 
+export const loader = ['de', 'en'].reduce((acc: any, lang) => {
+  acc[lang] = () => import(`../assets/i18n/${lang}.json`);
+  return acc;
+}, {});
+
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    TranslocoModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: TRANSLOCO_CONFIG,
+      useValue: translocoConfig({
+        availableLangs: ['de', 'en'],
+        defaultLang: 'de',
+        // Remove this option if your application doesn't support changing language in runtime.
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      }),
+    },
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {
+        scope: 'webcomponent',
+        loader,
+      },
+    },
+  ],
 })
 export class AppModule implements DoBootstrap {
   constructor(injector: Injector) {
@@ -37,7 +66,7 @@ export class AppModule implements DoBootstrap {
 
   ngDoBootstrap(app: ApplicationRef): void {
     if (isDevMode()) {
-      const componentElement = document.createElement('webcomponent-root');
+      const componentElement = document.createElement('transloco-poc-root');
       document.body.appendChild(componentElement);
       app.bootstrap(AppComponent);
     }
