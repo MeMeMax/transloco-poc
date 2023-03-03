@@ -15,7 +15,15 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/showcase/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/showcase/src/favicon.ico", "apps/showcase/src/assets"],
+        "assets": [
+          "apps/showcase/src/favicon.ico",
+          "apps/showcase/src/assets",
+          {
+            "glob": "**/*",
+            "input": "./libs/canis-dummy/src/lib/assets",
+            "output": "/assets/"
+          }
+        ],
         "styles": ["apps/showcase/src/styles.scss"],
         "scripts": []
       },
