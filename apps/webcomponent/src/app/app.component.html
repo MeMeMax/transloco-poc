@@ -1,2 +1,5 @@
-<transloco-poc-nx-welcome></transloco-poc-nx-welcome>
-<router-outlet></router-outlet>
+<ng-container *transloco="let t; read: 'webcomponent'">
+  <div>
+    <h2>{{ t('headline') }}</h2>
+  </div>
+</ng-container>
