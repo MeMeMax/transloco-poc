@@ -2,16 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const distDir = path.join(__dirname, 'dist/apps/webcomponent');
+const wcFileName = 'webcomponent.js';
 
 const filesToJoin = fs
   .readdirSync(distDir)
   .filter((file) => {
-    return (
-      file.endsWith('.js') &&
-      (file.startsWith('main.') ||
-        file.startsWith('polyfills.') ||
-        file.startsWith('runtime.'))
-    );
+    return file.endsWith('.js') && file !== wcFileName;
   })
   .reduce((agg, file) => {
     agg[file.split('.')[0]] = path.join(distDir, file);
@@ -29,5 +25,5 @@ if (filesToJoin.main) {
   result += fs.readFileSync(filesToJoin.main, 'utf-8');
 }
 
-fs.writeFileSync(path.join(distDir, 'webcomponent.js'), result, 'utf-8');
-console.info('Merged polyfills, runtime and main into webcomponent.js');
+fs.writeFileSync(path.join(distDir, wcFileName), result, 'utf-8');
+console.info(`Merged polyfills, runtime and main into ${wcFileName}`);
