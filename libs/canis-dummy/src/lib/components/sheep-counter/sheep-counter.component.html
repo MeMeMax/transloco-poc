@@ -1,1 +1,4 @@
-<p>sheep-counter works!</p>
+<ng-container *transloco="let t">
+  <div>{{ counter }} {{ t('sheepCounter.sheepsCounted') }}</div>
+  <button (click)="countSheeps()">{{ t('sheepCounter.countSheeps') }}</button>
+</ng-container>
