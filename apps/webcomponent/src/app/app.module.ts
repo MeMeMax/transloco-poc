@@ -24,7 +24,7 @@ import { createCustomElement } from '@angular/elements';
 })
 export class AppModule implements DoBootstrap {
   constructor(injector: Injector) {
-    const webComponentSelector = 'webcomponent';
+    const webComponentSelector = 'wc-transloco';
 
     if (!customElements.get(webComponentSelector)) {
       const component = createCustomElement(AppComponent, {
