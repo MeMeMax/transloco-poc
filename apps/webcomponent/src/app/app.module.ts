@@ -6,31 +6,33 @@ import {
   NgModule,
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { createCustomElement } from '@angular/elements';
 
 import {
   translocoConfig,
   TranslocoModule,
+  TranslocoService,
   TRANSLOCO_CONFIG,
   TRANSLOCO_SCOPE,
 } from '@ngneat/transloco';
 
-import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes';
-import { createCustomElement } from '@angular/elements';
+import { de } from '../assets/i18n/de';
+import { en } from '../assets/i18n/en';
 
-export const loader = ['de', 'en'].reduce((acc: any, lang) => {
-  acc[lang] = () => import(`../assets/i18n/${lang}.json`);
-  return acc;
-}, {});
+import { AppComponent } from './app.component';
+
+export const loader = function (translocoService: TranslocoService) {
+  const availableLangs = { en, de };
+  const loader = Object.entries(availableLangs).forEach(([key, translation]) =>
+    translocoService.setTranslation(translation, `webcomponent/${key}`)
+  );
+
+  return { scope: 'webcomponent', loader };
+};
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    TranslocoModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-  ],
+  imports: [BrowserModule, TranslocoModule],
   providers: [
     {
       provide: TRANSLOCO_CONFIG,
@@ -44,10 +46,8 @@ export const loader = ['de', 'en'].reduce((acc: any, lang) => {
     },
     {
       provide: TRANSLOCO_SCOPE,
-      useValue: {
-        scope: 'webcomponent',
-        loader,
-      },
+      deps: [TranslocoService],
+      useFactory: loader,
     },
   ],
 })
