@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const distDir = path.join(__dirname, 'dist/apps/webcomponent');
+const appAssetsFolder = path.join(__dirname, 'apps/showcase/src/assets');
 const wcFileName = 'webcomponent.js';
 
 const filesToJoin = fs
@@ -25,5 +26,5 @@ if (filesToJoin.main) {
   result += fs.readFileSync(filesToJoin.main, 'utf-8');
 }
 
-fs.writeFileSync(path.join(distDir, wcFileName), result, 'utf-8');
+fs.writeFileSync(path.join(appAssetsFolder, wcFileName), result, 'utf-8');
 console.info(`Merged polyfills, runtime and main into ${wcFileName}`);
