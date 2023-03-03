@@ -6,7 +6,7 @@ import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { SheepCounterComponent } from './components/sheep-counter/sheep-counter.component';
 
 export const loader = ['de', 'en'].reduce((acc: any, lang) => {
-  acc[lang] = () => import(`./assets/i18n/${lang}.json`);
+  acc[lang] = () => import(`./assets/i18n/canisDummy/${lang}.json`);
   return acc;
 }, {});
 
