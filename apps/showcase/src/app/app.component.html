@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<ng-container *transloco="let t">
+  {{ t('welcomeMessage') }}
+  <router-outlet></router-outlet>
+</ng-container>

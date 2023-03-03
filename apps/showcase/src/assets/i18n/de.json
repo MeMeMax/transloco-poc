@@ -1,1 +1,6 @@
-{}
+{
+  "welcomeMessage": "Transloco Machbarkeitsnachweis",
+  "first": {
+    "welcomeMessage": "Eine Komponente"
+  }
+}
