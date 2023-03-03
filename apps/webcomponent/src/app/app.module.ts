@@ -7,32 +7,20 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   translocoConfig,
   TranslocoModule,
-  TranslocoService,
   TRANSLOCO_CONFIG,
-  TRANSLOCO_SCOPE,
 } from '@ngneat/transloco';
-
-import { de } from '../assets/i18n/de';
-import { en } from '../assets/i18n/en';
+import { CanisDummyModule } from '@wm-iot/canis-dummy';
 
 import { AppComponent } from './app.component';
 
-export const loader = function (translocoService: TranslocoService) {
-  const availableLangs = { en, de };
-  const loader = Object.entries(availableLangs).forEach(([key, translation]) =>
-    translocoService.setTranslation(translation, `webcomponent/${key}`)
-  );
-
-  return { scope: 'webcomponent', loader };
-};
-
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, TranslocoModule],
+  imports: [BrowserModule, HttpClientModule, TranslocoModule, CanisDummyModule],
   providers: [
     {
       provide: TRANSLOCO_CONFIG,
@@ -43,11 +31,6 @@ export const loader = function (translocoService: TranslocoService) {
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       }),
-    },
-    {
-      provide: TRANSLOCO_SCOPE,
-      deps: [TranslocoService],
-      useFactory: loader,
     },
   ],
 })
