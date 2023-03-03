@@ -1,0 +1,6 @@
+{
+  "sheepCounter": {
+    "sheepsCounted": "{{counter}} sheeps were counted",
+    "countSheeps": "Count next sheep"
+  }
+}
