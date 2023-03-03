@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  align-items: center;
+
+  .welcome-message {
+    flex-grow: 1;
+  }
+}

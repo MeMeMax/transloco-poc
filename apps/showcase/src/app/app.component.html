@@ -1,4 +1,17 @@
 <ng-container *transloco="let t">
-  {{ t('welcomeMessage') }}
+  <div class="header">
+    <h1 class="welcome-message">{{ t('welcomeMessage') }}</h1>
+    <div class="language-selection">
+      <select
+        name="cars"
+        id="cars"
+        [(ngModel)]="lang"
+        (ngModelChange)="langChange()"
+      >
+        <option value="de">DE</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+  </div>
   <router-outlet></router-outlet>
 </ng-container>
