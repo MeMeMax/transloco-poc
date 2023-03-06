@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './first.component.html',
   styleUrls: ['./first.component.scss'],
 })
-export class FirstComponent {}
+export class FirstComponent {
+  lang = 'de-DE';
+}

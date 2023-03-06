@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [AdminComponent],
   imports: [CommonModule, AdminRoutingModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule {}
