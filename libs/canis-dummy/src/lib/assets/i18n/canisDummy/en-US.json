@@ -1,4 +1,5 @@
 {
+  "welcomeMessage": "This component comes from a library",
   "sheepCounter": {
     "sheepsCounted": "{counter, plural, =0 { 0 sheeps were counted } one { 1 sheep was counted } other { {counter} sheeps were counted}}",
     "costs": "Costs",

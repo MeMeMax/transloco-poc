@@ -4,6 +4,6 @@
     "welcomeMessage": "A component from a library"
   },
   "fromWebcomponent": {
-    "welcomeMessage": "A component from a webcomponent"
+    "welcomeMessage": "A webcomponent"
   }
 }

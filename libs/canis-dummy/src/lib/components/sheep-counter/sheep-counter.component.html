@@ -1,13 +1,17 @@
 <ng-container *transloco="let t; read: 'canisDummy'">
-  <div>{{ t('sheepCounter.sheepsCounted', {counter}) }}</div>
-  <div>
-    {{ t('sheepCounter.costs') }}: {{ counter * 100 | translocoCurrency }}
-  </div>
-  <div>
-    {{ 'canisDummy.sheepCounter.lastCounted' | transloco }}:
-    {{
-      lastCounted | translocoDate : { dateStyle: 'medium', timeStyle: 'medium' }
-    }}
-  </div>
-  <button (click)="countSheeps()">{{ t('sheepCounter.countSheeps') }}</button>
+  <fieldset>
+    <legend>{{ 'canisDummy.welcomeMessage' | transloco }}</legend>
+    <div>{{ t('sheepCounter.sheepsCounted', {counter}) }}</div>
+    <div>
+      {{ t('sheepCounter.costs') }}: {{ counter * 100 | translocoCurrency }}
+    </div>
+    <div>
+      {{ 'canisDummy.sheepCounter.lastCounted' | transloco }}:
+      {{
+        lastCounted
+          | translocoDate : { dateStyle: 'medium', timeStyle: 'medium' }
+      }}
+    </div>
+    <button (click)="countSheeps()">{{ t('sheepCounter.countSheeps') }}</button>
+  </fieldset>
 </ng-container>

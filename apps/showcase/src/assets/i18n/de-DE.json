@@ -3,5 +3,5 @@
   "fromLibrary": {
     "welcomeMessage": "Eine Komponente direkt aus einer Bibliothek"
   },
-  "fromWebcomponent": { "welcomeMessage": "Eine Komponente aus einer Webcomponent" }
+  "fromWebcomponent": { "welcomeMessage": "Eine Webcomponent" }
 }
