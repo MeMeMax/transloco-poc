@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
+import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
 
 import { SheepCounterComponent } from './components/sheep-counter/sheep-counter.component';
 
@@ -11,7 +12,11 @@ export const loader = ['de', 'en'].reduce((acc: any, lang) => {
 }, {});
 
 @NgModule({
-  imports: [CommonModule, TranslocoModule],
+  imports: [
+    CommonModule,
+    TranslocoModule,
+    TranslocoMessageFormatModule.forRoot(),
+  ],
   declarations: [SheepCounterComponent],
   exports: [SheepCounterComponent],
   providers: [

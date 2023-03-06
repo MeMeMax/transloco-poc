@@ -14,13 +14,20 @@ import {
   TranslocoModule,
   TRANSLOCO_CONFIG,
 } from '@ngneat/transloco';
+import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
 import { CanisDummyModule } from '@wm-iot/canis-dummy';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, TranslocoModule, CanisDummyModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    TranslocoModule,
+    TranslocoMessageFormatModule.forRoot(),
+    CanisDummyModule,
+  ],
   providers: [
     {
       provide: TRANSLOCO_CONFIG,
