@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
-  { path: '', pathMatch: 'full', redirectTo: 'first' },
+  { path: '', pathMatch: 'full', redirectTo: 'from-library' },
   {
     path: 'admin',
     loadChildren: () =>

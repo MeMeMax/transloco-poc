@@ -10,10 +10,11 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { CanisDummyModule } from '@wm-iot/canis-dummy';
 
 import { FeatureOneRoutingModule } from './feature-one-routing.module';
-import { FirstComponent } from './components/first/first.component';
+import { FromLibraryComponent } from './components/from-library/from-library.component';
+import { FromWebcomponentComponent } from './components/from-webcomponent/from-webcomponent.component';
 
 @NgModule({
-  declarations: [FirstComponent],
+  declarations: [FromLibraryComponent, FromWebcomponentComponent],
   imports: [
     CommonModule,
     FeatureOneRoutingModule,

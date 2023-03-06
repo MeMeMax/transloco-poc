@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { LanguageService } from '../../../core/services/language/language.service';
 
 @Component({
-  selector: 'transloco-poc-first',
-  templateUrl: './first.component.html',
-  styleUrls: ['./first.component.scss'],
+  selector: 'transloco-poc-from-webcomponent',
+  templateUrl: './from-webcomponent.component.html',
+  styleUrls: ['./from-webcomponent.component.scss'],
 })
-export class FirstComponent {
+export class FromWebcomponentComponent {
   constructor(public languageService: LanguageService) {}
 }
