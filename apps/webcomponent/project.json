@@ -17,7 +17,12 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/webcomponent/src/favicon.ico",
-          "apps/webcomponent/src/assets"
+          "apps/webcomponent/src/assets",
+          {
+            "glob": "**/*",
+            "input": "./libs/canis-dummy/src/lib/assets",
+            "output": "/assets/"
+          }
         ],
         "styles": ["apps/webcomponent/src/styles.scss"],
         "scripts": [],
