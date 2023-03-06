@@ -3,13 +3,13 @@ import { Component, Input } from '@angular/core';
 import { TranslocoService, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { firstValueFrom } from 'rxjs';
 
-import { de } from '../assets/i18n/de';
-import { en } from '../assets/i18n/en';
+import { deDE } from '../assets/i18n/de-DE';
+import { enUS } from '../assets/i18n/en-US';
 
 export const webcomponentTranslationLoader = function (
   translocoService: TranslocoService
 ) {
-  const availableLangs = { en, de };
+  const availableLangs = { 'en-US': enUS, 'de-DE': deDE };
   const loader = Object.entries(availableLangs).forEach(([key, translation]) =>
     translocoService.setTranslation(translation, `webcomponent/${key}`)
   );
@@ -18,10 +18,10 @@ export const webcomponentTranslationLoader = function (
 };
 
 export const canisTranslationLoader = function (http: HttpClient) {
-  const loader = ['de', 'en'].reduce((acc: any, lang) => {
+  const loader = ['de-DE', 'en-US'].reduce((acc: any, lang) => {
     acc[lang] = () =>
       firstValueFrom(http.get(`assets/i18n/canisDummy/${lang}.json`));
-    console.log(acc);
+
     return acc;
   }, {});
 

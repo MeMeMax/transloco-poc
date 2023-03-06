@@ -7,7 +7,7 @@ import { TranslocoService } from '@ngneat/transloco';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  lang = 'de';
+  lang = 'de-DE';
 
   constructor(private translocoService: TranslocoService) {}
 
