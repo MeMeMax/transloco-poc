@@ -1,4 +1,11 @@
 <ng-container *transloco="let t; read: 'canisDummy'">
   <div>{{ t('sheepCounter.sheepsCounted', {counter}) }}</div>
+  <div>
+    {{ t('sheepCounter.costs') }}: {{ counter * 100 | translocoCurrency }}
+  </div>
+  <div>
+    {{ 'canisDummy.sheepCounter.lastCounted' | transloco }}:
+    {{ lastCounted | translocoDate }}
+  </div>
   <button (click)="countSheeps()">{{ t('sheepCounter.countSheeps') }}</button>
 </ng-container>

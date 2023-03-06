@@ -1,6 +1,8 @@
 {
   "sheepCounter": {
     "sheepsCounted": "{counter, plural, =0 { Keine Schafe wurden gezählt } one { Ein Schaf wurde gezählt } other { {counter} Schafe wurden gezählt }}",
+    "costs": "Kosten",
+    "lastCounted": "Zuletzt gezählt",
     "countSheeps": "Nächstes schaf zählen"
   }
 }

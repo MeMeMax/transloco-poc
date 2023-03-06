@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SheepCounterComponent {
   counter = 0;
+  lastCounted!: string;
 
   countSheeps() {
     this.counter += 1;
+    this.lastCounted = new Date().toISOString();
   }
 }

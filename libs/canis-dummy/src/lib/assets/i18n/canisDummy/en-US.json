@@ -1,6 +1,8 @@
 {
   "sheepCounter": {
     "sheepsCounted": "{counter, plural, =0 { 0 sheeps were counted } one { 1 sheep was counted } other { {counter} sheeps were counted}}",
+    "costs": "Costs",
+    "lastCounted": "Last counted",
     "countSheeps": "Count next sheep"
   }
 }

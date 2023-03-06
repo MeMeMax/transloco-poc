@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
+import { TranslocoLocaleModule } from '@ngneat/transloco-locale';
 
 import { SheepCounterComponent } from './components/sheep-counter/sheep-counter.component';
 
@@ -16,6 +17,7 @@ export const loader = ['de-DE', 'en-US'].reduce((acc: any, lang) => {
     CommonModule,
     TranslocoModule,
     TranslocoMessageFormatModule.forRoot(),
+    TranslocoLocaleModule.forRoot(),
   ],
   declarations: [SheepCounterComponent],
   exports: [SheepCounterComponent],
