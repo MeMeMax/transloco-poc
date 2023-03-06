@@ -1,15 +1,19 @@
 <ng-container *transloco="let t">
-  <div class="header">
-    <h1 class="welcome-message">{{ t('welcomeMessage') }}</h1>
-    <div class="language-selection">
-      <select name="cars" id="cars" (change)="langChange($event)">
-        <option value="de-DE">DE</option>
-        <option value="en-US">EN</option>
-      </select>
-    </div>
-  </div>
-  <div><a routerLink="from-library">From Library</a></div>
-  <div><a routerLink="from-webcomponent">From Webcomponent</a></div>
-  <div><a routerLink="admin">Admin</a></div>
-  <router-outlet></router-outlet>
+  <fieldset>
+    <legend>
+      <h1 class="welcome-message">
+        {{ t('welcomeMessage') }}
+        <select name="cars" id="cars" (change)="langChange($event)">
+          <option value="de-DE">DE</option>
+          <option value="en-US">EN</option>
+        </select>
+      </h1>
+    </legend>
+
+    <div><a routerLink="from-library">From Library</a></div>
+    <div><a routerLink="from-webcomponent">From Webcomponent</a></div>
+    <div><a routerLink="admin">Admin</a></div>
+
+    <router-outlet></router-outlet>
+  </fieldset>
 </ng-container>
