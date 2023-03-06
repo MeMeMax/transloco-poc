@@ -5,7 +5,9 @@
   </div>
   <div>
     {{ 'canisDummy.sheepCounter.lastCounted' | transloco }}:
-    {{ lastCounted | translocoDate }}
+    {{
+      lastCounted | translocoDate : { dateStyle: 'medium', timeStyle: 'medium' }
+    }}
   </div>
   <button (click)="countSheeps()">{{ t('sheepCounter.countSheeps') }}</button>
 </ng-container>
