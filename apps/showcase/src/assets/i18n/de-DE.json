@@ -1,7 +1,9 @@
 {
-  "welcomeMessage": "Transloco Machbarkeitsnachweis",
+  "welcomeMessage": "Transloco Machbarkeitsnachweis - APP",
   "fromLibrary": {
-    "welcomeMessage": "Eine Komponente direkt aus einer Bibliothek"
+    "welcomeMessage": "Hier wird eine Library Komponente eingebunden"
   },
-  "fromWebcomponent": { "welcomeMessage": "Eine Webcomponent" }
+  "fromWebcomponent": {
+    "welcomeMessage": "Hier wird eine Webcomponent eingebunden"
+  }
 }

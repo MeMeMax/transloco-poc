@@ -1,9 +1,9 @@
 {
-  "welcomeMessage": "Transloco proof of concept",
+  "welcomeMessage": "Transloco proof of concept - APP",
   "fromLibrary": {
-    "welcomeMessage": "A component from a library"
+    "welcomeMessage": "A library component is integrated here"
   },
   "fromWebcomponent": {
-    "welcomeMessage": "A webcomponent"
+    "welcomeMessage": "A webcomponent is integrated here"
   }
 }
