@@ -2,12 +2,7 @@
   <div class="header">
     <h1 class="welcome-message">{{ t('welcomeMessage') }}</h1>
     <div class="language-selection">
-      <select
-        name="cars"
-        id="cars"
-        [(ngModel)]="lang"
-        (ngModelChange)="langChange()"
-      >
+      <select name="cars" id="cars" (change)="langChange($event)">
         <option value="de-DE">DE</option>
         <option value="en-US">EN</option>
       </select>
