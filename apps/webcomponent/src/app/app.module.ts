@@ -10,14 +10,24 @@ import { createCustomElement } from '@angular/elements';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
+  TranslocoConfig,
   translocoConfig,
+  TranslocoMissingHandler,
   TranslocoModule,
   TRANSLOCO_CONFIG,
+  TRANSLOCO_MISSING_HANDLER,
 } from '@ngneat/transloco';
 import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
 import { CanisDummyModule } from '@wm-iot/canis-dummy';
 
 import { AppComponent } from './app.component';
+
+export class CustomHandler implements TranslocoMissingHandler {
+  handle(key: string, config: TranslocoConfig) {
+    console.log('handle missing translations in WEBCOMPONENT');
+    return `${key} HANDLED IN WEBCOMPONENT`;
+  }
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +48,10 @@ import { AppComponent } from './app.component';
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       }),
+    },
+    {
+      provide: TRANSLOCO_MISSING_HANDLER,
+      useClass: CustomHandler,
     },
   ],
 })

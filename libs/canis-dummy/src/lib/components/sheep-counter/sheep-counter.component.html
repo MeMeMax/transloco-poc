@@ -1,6 +1,9 @@
 <ng-container *transloco="let t; read: 'canisDummy'">
   <fieldset>
     <legend>{{ 'canisDummy.welcomeMessage' | transloco }}</legend>
+
+    <p>{{ 'missingTranslationInLibrary' | transloco }}</p>
+
     <div>{{ t('sheepCounter.sheepsCounted', {counter}) }}</div>
     <div>
       {{ t('sheepCounter.costs') }}: {{ counter * 100 | translocoCurrency }}
