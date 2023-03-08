@@ -14,13 +14,28 @@ import {
   translocoConfig,
   TranslocoMissingHandler,
   TranslocoModule,
+  TranslocoService,
   TRANSLOCO_CONFIG,
   TRANSLOCO_MISSING_HANDLER,
+  TRANSLOCO_SCOPE,
 } from '@ngneat/transloco';
 import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
 import { CanisDummyModule } from '@wm-iot/canis-dummy';
 
 import { AppComponent } from './app.component';
+import { deDE } from '../assets/i18n/de-DE';
+import { enUS } from '../assets/i18n/en-US';
+
+export const webcomponentTranslationLoader = function (
+  translocoService: TranslocoService
+) {
+  const availableLangs = { 'en-US': enUS, 'de-DE': deDE };
+  const loader = Object.entries(availableLangs).forEach(([key, translation]) =>
+    translocoService.setTranslation(translation, `webcomponent/${key}`)
+  );
+
+  return [{ scope: 'webcomponent', loader }];
+};
 
 export class CustomHandler implements TranslocoMissingHandler {
   handle(key: string, config: TranslocoConfig) {
@@ -52,6 +67,12 @@ export class CustomHandler implements TranslocoMissingHandler {
     {
       provide: TRANSLOCO_MISSING_HANDLER,
       useClass: CustomHandler,
+    },
+    {
+      provide: TRANSLOCO_SCOPE,
+      deps: [TranslocoService],
+      useFactory: webcomponentTranslationLoader,
+      multi: true,
     },
   ],
 })
